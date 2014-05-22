@@ -6,8 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction()
     {
-        return $this->render('SMChatBundle:Default:index.html.twig', array('name' => $name));
+        $chats = $this->getDoctrine()
+            ->getRepository('SMChatBundle:Chat')
+            ->findAll();
+        return $this->render('SMChatBundle:Default:index.html.twig', array('thumbnails' => $chats));
     }
 }

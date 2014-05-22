@@ -11,3 +11,11 @@
 /composer.phar
 /.idea
 .DS_Store
+
+# Assetic directories
+web/assetic/*
+web/js/*
+web/css/*
+web/bootstrap/*
+web/fonts/*
+
