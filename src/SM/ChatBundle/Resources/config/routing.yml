@@ -1,3 +1,7 @@
 sm_chat_homepage:
     pattern:  /
     defaults: { _controller: SMChatBundle:Default:index }
+
+sm_chat_chat:
+    pattern: /chat/{chatId}
+    defaults: { _controller: SMChatBundle:Chat:index }

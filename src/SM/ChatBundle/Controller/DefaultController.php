@@ -11,6 +11,6 @@ class DefaultController extends Controller
         $chats = $this->getDoctrine()
             ->getRepository('SMChatBundle:Chat')
             ->findAll();
-        return $this->render('SMChatBundle:Default:index.html.twig', array('thumbnails' => $chats));
+        return $this->render('SMChatBundle:Default:index.html.twig', array('chats' => $chats));
     }
 }
