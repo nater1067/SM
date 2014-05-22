@@ -1,0 +1,4 @@
+sm_chat:
+    resource: "@SMChatBundle/Resources/config/routing.yml"
+    prefix:   /
+
