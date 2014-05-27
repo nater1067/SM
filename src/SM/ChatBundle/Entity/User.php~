@@ -1,0 +1,48 @@
+<?php
+namespace SM\ChatBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="user")
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="type", type="string")
+ * @ORM\DiscriminatorMap({"model" = "Model", "viewer" = "Viewer"})
+ *
+ */
+abstract class User extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="integer", nullable=false)
+     */
+    protected $age;
+
+    /**
+     * @ORM\Column(type="string", nullable=false);
+     */
+    protected $firstName;
+
+    /**
+     * @ORM\Column(type="string", nullable=false);
+     */
+    protected $lastName;
+
+    /**
+     * @ORM\Column(type="string", nullable=false);
+     */
+    protected $nickname;
+
+    /**
+     * @ORM\Column(type="string", nullable=false);
+     */
+    protected $country;
+}

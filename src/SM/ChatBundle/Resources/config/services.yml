@@ -1,7 +1,9 @@
 parameters:
-#    sm_chat.example.class: SM\ChatBundle\Example
+    sm_chat.stripe.api_key: sk_test_TfK0OV6ZYMqwD4U0rLB6Z81X
 
 services:
-#    sm_chat.example:
-#        class: %sm_chat.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    sm_chat.stripe:
+        class: SM\ChatBundle\PaymentMethod\StripePaymentMethod
+        arguments:
+            - @doctrine.orm.entity_manager
+            - %sm_chat.stripe.api_key%

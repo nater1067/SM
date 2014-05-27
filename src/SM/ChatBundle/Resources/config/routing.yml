@@ -5,3 +5,23 @@ sm_chat_homepage:
 sm_chat_chat:
     pattern: /chat/{chatId}
     defaults: { _controller: SMChatBundle:Chat:index }
+
+model_registration:
+    pattern:  /register/model
+    defaults: { _controller: SMChatBundle:RegistrationModel:register }
+
+model_profile:
+    pattern: /model
+    defaults: { _controller: SMChatBundle:Model:profile }
+
+model_view:
+    pattern: /model/{modelId}
+    defaults: { _controller: SMChatBundle:Model:view }
+
+viewer_register_credit_card:
+    pattern: /viewer/register2
+    defaults: { _controller: SMChatBundle:Viewer:registerCreditCard }
+
+sm_chat.create_stripe_customer:
+    pattern: /viewer/create_stripe_customer
+    defaults: { _controller: SMChatBundle:Viewer:createStripeCustomer }

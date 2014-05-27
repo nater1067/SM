@@ -8,9 +8,9 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $chats = $this->getDoctrine()
-            ->getRepository('SMChatBundle:Chat')
+        $models = $this->getDoctrine()
+            ->getRepository('SMChatBundle:Model')
             ->findAll();
-        return $this->render('SMChatBundle:Default:index.html.twig', array('chats' => $chats));
+        return $this->render('SMChatBundle:Default:index.html.twig', array('models' => $models));
     }
 }

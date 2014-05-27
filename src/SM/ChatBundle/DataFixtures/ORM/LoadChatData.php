@@ -1,11 +1,14 @@
 <?php
-
 namespace SM\ChatBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use SM\ChatBundle\Entity\Chat;
 
+/**
+ * Class LoadChatData
+ * @package SM\ChatBundle\DataFixtures\ORM
+ */
 class LoadChatData implements FixtureInterface
 {
     /**
@@ -13,7 +16,6 @@ class LoadChatData implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-
         for ($i = 0; $i < 20; $i++) {
             $chat = new Chat();
             $chat->setDescription('I am a chat room. Come check me out :).');

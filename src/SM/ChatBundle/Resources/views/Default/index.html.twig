@@ -1,11 +1,11 @@
 {% extends 'SMChatBundle:layout:layout.html.twig' %}
 
 {% block body %}
-    {% for row in chats|batch(4) %}
+    {% for row in models|batch(4) %}
         <div class="row">
-            {% for chat in row %}
+            {% for model in row %}
                 <div class="col-xs-6 col-md-3">
-                    <a href="{{ path('sm_chat_chat', {'chatId': chat.id}) }}" class="thumbnail">
+                    <a href="{{ path('model_view', {'modelId': model.id}) }}" class="thumbnail">
                         {% image '@SMChatBundle/Resources/public/images/nyan.png' %}
                             <img src="{{ asset_url }}" alt="Nyan" />
                         {% endimage %}
