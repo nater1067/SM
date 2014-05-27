@@ -73,3 +73,43 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+# FOSUser
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: SM\ChatBundle\Entity\User
+    service:
+        user_manager: pugx_user_manager
+
+# PUGX Multi User
+pugx_multi_user:
+  users:
+    model:
+        entity:
+          class: SM\ChatBundle\Entity\Model
+        registration:
+          form:
+            type: SM\ChatBundle\Form\Type\RegistrationModelFormType
+            name: fos_model_registration_form
+            validation_groups:  [Registration, Default]
+          template: SMChatBundle:Registration:model.form.html.twig
+        profile:
+          form:
+            type: SM\ChatBundle\Form\Type\ProfileModel
+            name: fos_model_profile_form
+            validation_groups:  [Profile, Default]
+    viewer:
+        entity:
+          class: SM\ChatBundle\Entity\Viewer
+        registration:
+          form:
+            type: SM\ChatBundle\Form\Type\RegistrationViewerFormType
+            name: fos_viewer_registration_form
+            validation_groups:  [Registration, Default]
+          template: SMChatBundle:Registration:viewer.form.html.twig
+        profile:
+          form:
+            type: SM\ChatBundle\Form\Type\ProfileViewer
+            name: fos_model_profile_form
+            validation_groups:  [Profile, Default]

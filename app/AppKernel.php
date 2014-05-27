@@ -18,7 +18,9 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new SM\ChatBundle\SMChatBundle(),
             new \Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
-            new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle()
+            new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new PUGX\MultiUserBundle\PUGXMultiUserBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
