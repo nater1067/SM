@@ -16,7 +16,9 @@ class ViewerController extends Controller
      */
     public function registerAction()
     {
-        return $this->render('SMChatBundle:Viewer:register.html.twig');
+        return $this->container
+            ->get('pugx_multi_user.registration_manager')
+            ->register('SM\ChatBundle\Entity\Viewer');
     }
 
     /**
@@ -35,5 +37,6 @@ class ViewerController extends Controller
         $stripe = $this->get('sm_chat.stripe');
         $stripe->setViewer($this->getUser());
         $stripe->registerUser($this->getRequest()->request->get('stripeToken'));
+        return $this->render('SMChatBundle:Viewer:registrationComplete.html.twig');
     }
 } 

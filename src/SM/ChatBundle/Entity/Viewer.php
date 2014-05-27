@@ -20,7 +20,7 @@ class Viewer extends User
 
     /**
      * The stripe customer id
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $stripeCustomerId;
 

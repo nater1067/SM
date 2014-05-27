@@ -18,6 +18,10 @@ model_view:
     pattern: /model/{modelId}
     defaults: { _controller: SMChatBundle:Model:view }
 
+viewer_registration:
+    pattern:  /register/viewer
+    defaults: { _controller: SMChatBundle:Viewer:register }
+
 viewer_register_credit_card:
     pattern: /viewer/register2
     defaults: { _controller: SMChatBundle:Viewer:registerCreditCard }
@@ -25,3 +29,4 @@ viewer_register_credit_card:
 sm_chat.create_stripe_customer:
     pattern: /viewer/create_stripe_customer
     defaults: { _controller: SMChatBundle:Viewer:createStripeCustomer }
+

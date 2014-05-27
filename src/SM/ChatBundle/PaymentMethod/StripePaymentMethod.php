@@ -1,6 +1,7 @@
 <?php
 namespace SM\ChatBundle\PaymentMethod;
 
+use Stripe;
 use Stripe_Charge;
 use Stripe_Customer;
 use Doctrine\ORM\EntityManager;
@@ -36,6 +37,7 @@ class StripePaymentMethod extends AbstractPaymentMethod
     {
         $this->apiKey = $apiKey;
         $this->em = $em;
+        Stripe::setApiKey($apiKey);
     }
 
     /**
