@@ -1,5 +1,7 @@
 parameters:
     sm_chat.stripe.api_key: sk_test_TfK0OV6ZYMqwD4U0rLB6Z81X
+    sm_chat.tokbox.api_key: 44783462
+    sm_chat.tokbox.api_secret: 4b38b80c3fd64ad6b6049d2e42ce769be8876edd
 
 services:
     sm_chat.stripe:
@@ -7,3 +9,8 @@ services:
         arguments:
             - @doctrine.orm.entity_manager
             - %sm_chat.stripe.api_key%
+    sm_chat.cam:
+        class: SM\ChatBundle\Cam\Cam
+        arguments:
+            - %sm_chat.tokbox.api_key%
+            - %sm_chat.tokbox.api_secret%

@@ -1,6 +1,7 @@
 <?php
 namespace SM\ChatBundle\Controller;
 
+use SM\ChatBundle\Cam\Cam;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
@@ -39,5 +40,17 @@ class ModelController extends Controller
         }
 
         return $this->render('SMChatBundle:Model:view.html.twig', array('model' => $model));
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function myCamAction()
+    {
+        /** @var Cam $cam */
+        $cam = $this->get('sm_chat.cam');
+        $session = $cam->createSession();
+        $token = $cam->generateToken($session->getSessionId());
+        return $this->render('SMChatBundle:Model:myCam.html.twig', ['session' => $session, 'token' => $token]);
     }
 }

@@ -1,9 +1,9 @@
 <?php
 namespace SM\ChatBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use SM\ChatBundle\PaymentMethod\StripePaymentMethod;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class ViewerController
@@ -29,6 +29,9 @@ class ViewerController extends Controller
         return $this->render('SMChatBundle:Viewer:registerCreditCard.html.twig');
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function createStripeCustomerAction()
     {
         /** @var Request $request */

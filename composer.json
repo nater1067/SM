@@ -40,7 +40,7 @@
         "pugx/multi-user-bundle": "3.0.*@dev",
         "umpirsky/country-list": "dev-master",
         "stripe/stripe-php": "dev-master",
-        "opentok/opentok": "dev-master"
+        "opentok/opentok": "2.2.*"
     },
     "scripts": {
         "post-install-cmd": [

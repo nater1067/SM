@@ -10,6 +10,10 @@ model_registration:
     pattern:  /register/model
     defaults: { _controller: SMChatBundle:RegistrationModel:register }
 
+model_cam:
+    pattern: /my/cam
+    defaults: { _controller: SMChatBundle:Model:myCam }
+
 model_profile:
     pattern: /model
     defaults: { _controller: SMChatBundle:Model:profile }
