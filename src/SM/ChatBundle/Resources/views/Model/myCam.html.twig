@@ -1,6 +1,21 @@
 {% extends 'SMChatBundle:layout:layout.html.twig' %}
 
 {% block body %}
-    {{ token }}
     <script src="//static.opentok.com/webrtc/v2.2/js/opentok.min.js"></script>
+    <script type="text/javascript">
+        var apiKey    = "YOUR API KEY HERE";
+        var sessionId = "YOUR SESSION ID HERE";
+        var token     = "{{ token }}";
+
+        var session = OT.initSession(apiKey, sessionId);
+
+        session.on("streamCreated", function(event) {
+            session.subscribe(event.stream);
+        });
+
+        session.connect(token, function(error) {
+            var publisher = OT.initPublisher();
+            session.publish(publisher);
+        });
+    </script>
 {% endblock %}

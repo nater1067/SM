@@ -51,6 +51,12 @@ class ModelController extends Controller
         $cam = $this->get('sm_chat.cam');
         $session = $cam->createSession();
         $token = $cam->generateToken($session->getSessionId());
-        return $this->render('SMChatBundle:Model:myCam.html.twig', ['session' => $session, 'token' => $token]);
+        return $this->render('SMChatBundle:Model:myCam.html.twig',
+            [
+                'apiKey' => $this->container->getParameter('sm_chat.tokbox.api_key'),
+                'sessionId' => $session->getSessionId(),
+                'token' => $token
+            ]
+        );
     }
 }
