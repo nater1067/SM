@@ -2,6 +2,7 @@
 namespace SM\ChatBundle\Controller;
 
 use SM\ChatBundle\Cam\Cam;
+use SM\ChatBundle\Entity\Model;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
@@ -51,6 +52,12 @@ class ModelController extends Controller
         $cam = $this->get('sm_chat.cam');
         $session = $cam->createSession();
         $token = $cam->generateToken($session->getSessionId());
+        /** @var Model $model */
+        $model = $this->getUser();
+        $model->setActiveStreamSessionId($session->getSessionId());
+        $model->setActiveStreamToken($token);
+        $this->getDoctrine()->getManager()->persist($model);
+        $this->getDoctrine()->getManager()->flush();
         return $this->render('SMChatBundle:Model:myCam.html.twig',
             [
                 'apiKey' => $this->container->getParameter('sm_chat.tokbox.api_key'),

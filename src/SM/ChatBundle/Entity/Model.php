@@ -12,6 +12,15 @@ use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
  */
 class Model extends User
 {
+    /**
+     * @ORM\Column(type="string", nullable=true);
+     */
+    protected $activeStreamSessionId;
+
+    /**
+     * @ORM\Column(type="text", nullable=true);
+     */
+    protected $activeStreamToken;
 
     /**
      * Get id
@@ -137,5 +146,74 @@ class Model extends User
     public function getCountry()
     {
         return $this->country;
+    }
+
+    /**
+     * Set activeStream
+     *
+     * @param string $activeStream
+     * @return Model
+     */
+    public function setActiveStream($activeStream)
+    {
+        $this->activeStream = $activeStream;
+
+        return $this;
+    }
+
+    /**
+     * Get activeStream
+     *
+     * @return string 
+     */
+    public function getActiveStream()
+    {
+        return $this->activeStream;
+    }
+
+    /**
+     * Set activeStreamSessionId
+     *
+     * @param string $activeStreamSessionId
+     * @return Model
+     */
+    public function setActiveStreamSessionId($activeStreamSessionId)
+    {
+        $this->activeStreamSessionId = $activeStreamSessionId;
+
+        return $this;
+    }
+
+    /**
+     * Get activeStreamSessionId
+     *
+     * @return string 
+     */
+    public function getActiveStreamSessionId()
+    {
+        return $this->activeStreamSessionId;
+    }
+
+    /**
+     * Set activeStreamToken
+     *
+     * @param string $activeStreamToken
+     * @return Model
+     */
+    public function setActiveStreamToken($activeStreamToken)
+    {
+        $this->activeStreamToken = $activeStreamToken;
+
+        return $this;
+    }
+
+    /**
+     * Get activeStreamToken
+     *
+     * @return string 
+     */
+    public function getActiveStreamToken()
+    {
+        return $this->activeStreamToken;
     }
 }

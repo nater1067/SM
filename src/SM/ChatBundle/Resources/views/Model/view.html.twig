@@ -3,4 +3,23 @@
 {% block body %}
     <h1>{{ model.username }}</h1>
     <p>{{ model.age }}</p>
+    <script src="//static.opentok.com/webrtc/v2.2/js/opentok.min.js"></script>
+    <script type="text/javascript">
+        var apiKey    = "44783462";
+        var sessionId = "{{ model.activeStreamSessionId }}";
+        var token     = "{{ model.activeStreamToken }}";
+
+        var session = OT.initSession(apiKey, sessionId);
+
+        session.on("streamCreated", function(event) {
+            session.subscribe(event.stream);
+        });
+
+        session.connect(token, function (error) {
+            if(error) {
+                // failed to connect
+            }
+        });
+
+    </script>
 {% endblock %}
