@@ -7,7 +7,7 @@ sm_chat_chat:
     defaults: { _controller: SMChatBundle:Chat:index }
 
 model_registration:
-    pattern:  /register/model
+    pattern:  /model/register
     defaults: { _controller: SMChatBundle:RegistrationModel:register }
 
 model_cam:
@@ -15,7 +15,7 @@ model_cam:
     defaults: { _controller: SMChatBundle:Model:myCam }
 
 model_profile:
-    pattern: /model
+    pattern: /model/profile
     defaults: { _controller: SMChatBundle:Model:profile }
 
 model_view:
@@ -23,7 +23,7 @@ model_view:
     defaults: { _controller: SMChatBundle:Model:view }
 
 viewer_registration:
-    pattern:  /register/viewer
+    pattern:  /viewer/register
     defaults: { _controller: SMChatBundle:Viewer:register }
 
 viewer_register_credit_card:

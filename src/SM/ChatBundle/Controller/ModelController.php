@@ -17,9 +17,10 @@ class ModelController extends Controller
      */
     public function profileAction()
     {
-        return $this->container
-            ->get('pugx_multi_user.registration_manager')
-            ->register('SM\ChatBundle\Entity\Model');
+
+        /** @var Model $model */
+        $model = $this->getUser();
+        return $this->render('SMChatBundle:Model:profile.html.twig', array('model' => $model));
     }
 
     /**
