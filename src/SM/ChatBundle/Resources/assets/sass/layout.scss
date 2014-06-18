@@ -1,3 +1,15 @@
+$pinkFill: #f2a39e;
+$blueBorder: #007788;
+
 body {
-  background-color: red;
+}
+
+header.navbar {
+  background-color: $pinkFill;
+  border-bottom: solid 1px $blueBorder;
+}
+
+#thumbnail-container {
+  background-color: #fffAff;
+  padding-top: 15px;
 }

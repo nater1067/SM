@@ -24,6 +24,13 @@ class Viewer extends User
      */
     protected $stripeCustomerId;
 
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+        $this->roles = array(self::ROLE_VIEWER);
+    }
+
     /**
      * Get id
      *

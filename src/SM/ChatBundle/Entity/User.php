@@ -14,6 +14,9 @@ use FOS\UserBundle\Model\User as BaseUser;
  */
 abstract class User extends BaseUser
 {
+    const ROLE_VIEWER = 'ROLE_VIEWER';
+    const ROLE_MODEL = 'ROLE_MODEL';
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")

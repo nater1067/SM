@@ -12,35 +12,24 @@ use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
  */
 class Viewer extends User
 {
-    /**
-     * @var integer
-     */
-    protected $age;
 
     /**
-     * @var string
-     */
-    protected $firstName;
-
-    /**
-     * @var string
-     */
-    protected $lastName;
-
-    /**
-     * @var string
+     * @ORM\Column(type="string", nullable=false);
      */
     protected $nickname;
 
     /**
-     * @var string
-     */
-    protected $country;
-    /**
      * The stripe customer id
-     * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="string", nullable=true)
      */
     protected $stripeCustomerId;
+
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+        $this->roles = array(self::ROLE_VIEWER);
+    }
 
     /**
      * Get id

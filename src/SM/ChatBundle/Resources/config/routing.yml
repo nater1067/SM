@@ -11,7 +11,7 @@ model_registration:
     defaults: { _controller: SMChatBundle:RegistrationModel:register }
 
 model_cam:
-    pattern: /my/cam
+    pattern: /model/my/cam
     defaults: { _controller: SMChatBundle:Model:myCam }
 
 model_profile:
@@ -22,10 +22,6 @@ model_view:
     pattern: /model/{modelId}
     defaults: { _controller: SMChatBundle:Model:view }
 
-viewer_registration:
-    pattern:  /viewer/register
-    defaults: { _controller: SMChatBundle:Viewer:register }
-
 viewer_register_credit_card:
     pattern: /viewer/register2
     defaults: { _controller: SMChatBundle:Viewer:registerCreditCard }
@@ -34,3 +30,20 @@ sm_chat.create_stripe_customer:
     pattern: /viewer/create_stripe_customer
     defaults: { _controller: SMChatBundle:Viewer:createStripeCustomer }
 
+sm_chat.viewer_login:
+    path:     /viewer/login
+    defaults: { _controller: SMChatBundle:Viewer:login }
+
+sm_chat.viewer_register:
+    pattern:  /viewer/register
+    defaults: { _controller: SMChatBundle:Viewer:register }
+
+login:
+    path: /login
+    defaults: { _controller: SMChatBundle:Viewer:login }
+
+login_check:
+    path: /login_check
+
+logout:
+   path: /logout

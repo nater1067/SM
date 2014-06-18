@@ -18,9 +18,16 @@ class Model extends User
     protected $activeStreamSessionId;
 
     /**
-     * @ORM\Column(type="string", nullable=true);
+     * @ORM\Column(type="text", nullable=true);
      */
     protected $activeStreamToken;
+
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+        $this->roles = array(self::ROLE_MODEL);
+    }
 
     /**
      * Get id
@@ -169,5 +176,51 @@ class Model extends User
     public function getActiveStream()
     {
         return $this->activeStream;
+    }
+
+    /**
+     * Set activeStreamSessionId
+     *
+     * @param string $activeStreamSessionId
+     * @return Model
+     */
+    public function setActiveStreamSessionId($activeStreamSessionId)
+    {
+        $this->activeStreamSessionId = $activeStreamSessionId;
+
+        return $this;
+    }
+
+    /**
+     * Get activeStreamSessionId
+     *
+     * @return string 
+     */
+    public function getActiveStreamSessionId()
+    {
+        return $this->activeStreamSessionId;
+    }
+
+    /**
+     * Set activeStreamToken
+     *
+     * @param string $activeStreamToken
+     * @return Model
+     */
+    public function setActiveStreamToken($activeStreamToken)
+    {
+        $this->activeStreamToken = $activeStreamToken;
+
+        return $this;
+    }
+
+    /**
+     * Get activeStreamToken
+     *
+     * @return string 
+     */
+    public function getActiveStreamToken()
+    {
+        return $this->activeStreamToken;
     }
 }

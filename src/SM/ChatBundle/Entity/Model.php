@@ -22,6 +22,13 @@ class Model extends User
      */
     protected $activeStreamToken;
 
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+        $this->roles = array(self::ROLE_MODEL);
+    }
+
     /**
      * Get id
      *

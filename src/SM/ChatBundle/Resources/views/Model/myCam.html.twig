@@ -18,4 +18,10 @@
             session.publish(publisher);
         });
     </script>
+    <ul>
+    <h2>Active Users</h2>
+    {% for chat_session in active_chat_sessions %}
+        <li>{{ chat_session.viewerId.username }}</li>
+    {% endfor %}
+    </ul>
 {% endblock %}

@@ -2,6 +2,7 @@
 namespace SM\ChatBundle\Controller;
 
 use SM\ChatBundle\Cam\Cam;
+use SM\ChatBundle\Entity\ChatSession;
 use SM\ChatBundle\Entity\Model;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -12,6 +13,25 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  */
 class ModelController extends Controller
 {
+    public function loginAction()
+    {
+        $request = $this->getRequest();
+        $session = $request->getSession();
+
+        // get the login error if there is one
+        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
+            $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
+        } else {
+            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+        }
+
+        return $this->render('AcmeMainBundle:Security:login.html.twig', array(
+                // last username entered by the user
+                'last_username' => $session->get(SecurityContext::LAST_USERNAME),
+                'error'         => $error,
+            ));
+    }
+
     /**
      * @return mixed
      */
@@ -41,6 +61,17 @@ class ModelController extends Controller
             throw $this->createNotFoundException('This chat does not exist.');
         }
 
+        $user = $this->getUser();
+        if (get_class($user) == 'SM\ChatBundle\Entity\Viewer') {
+            $chatSession = new ChatSession();
+            $chatSession->setModelId($model->getId());
+            $chatSession->setViewerId($user->getId());
+            $this->getDoctrine()->getManager()->persist($chatSession);
+            $this->getDoctrine()->getManager()->flush();
+        } else {
+            die(get_class($user));
+        }
+
         return $this->render('SMChatBundle:Model:view.html.twig', array('model' => $model));
     }
 
@@ -59,11 +90,16 @@ class ModelController extends Controller
         $model->setActiveStreamToken($token);
         $this->getDoctrine()->getManager()->persist($model);
         $this->getDoctrine()->getManager()->flush();
+        $activeChatSessions = $this
+            ->getDoctrine()
+            ->getRepository('SMChatBundle:ChatSession')
+            ->findByModelId($this->getUser()->getId());
         return $this->render('SMChatBundle:Model:myCam.html.twig',
             [
                 'apiKey' => $this->container->getParameter('sm_chat.tokbox.api_key'),
                 'sessionId' => $session->getSessionId(),
-                'token' => $token
+                'token' => $token,
+                'active_chat_sessions' => $activeChatSessions
             ]
         );
     }

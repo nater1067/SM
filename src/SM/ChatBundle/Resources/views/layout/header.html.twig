@@ -21,8 +21,12 @@
                 Not Logged In
             {% endif %}
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Sign Up</a></li>
+                {% if app.user %}
+                    <li><a href="{{ path('logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ path('sm_chat.viewer_login') }}">Login</a></li>
+                    <li><a href="{{ path('sm_chat.viewer_register') }}">Sign Up</a></li>
+                {% endif %}
             </ul>
         </nav>
     </div>
