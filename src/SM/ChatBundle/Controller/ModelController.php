@@ -61,18 +61,25 @@ class ModelController extends Controller
             throw $this->createNotFoundException('This chat does not exist.');
         }
 
-        $user = $this->getUser();
-        if (get_class($user) == 'SM\ChatBundle\Entity\Viewer') {
-            $chatSession = new ChatSession();
-            $chatSession->setModelId($model->getId());
-            $chatSession->setViewerId($user->getId());
-            $this->getDoctrine()->getManager()->persist($chatSession);
-            $this->getDoctrine()->getManager()->flush();
-        } else {
-            die(get_class($user));
-        }
-
-        return $this->render('SMChatBundle:Model:view.html.twig', array('model' => $model));
+        /** @var SM\WalletBundle\TipJar\TipJar $tipJar */
+        $tipJar = $this->container->get('sm_wallet.tip_jar');
+        $tipJar->getTipOptions();
+//
+//        $user = $this->getUser();
+//        if (get_class($user) == 'SM\ChatBundle\Entity\Viewer') {
+//            $chatSession = new ChatSession();
+//            $chatSession->setModelId($model->getId());
+//            $chatSession->setViewerId($user->getId());
+//            $this->getDoctrine()->getManager()->persist($chatSession);
+//            $this->getDoctrine()->getManager()->flush();
+//        } else {
+//            die(get_class($user));
+//        }
+//
+        return $this->render('SMChatBundle:Model:view.html.twig', array(
+                'model' => $model,
+                'tip_jar_options' => $tipJar->getTipOptions()
+            ));
     }
 
     /**

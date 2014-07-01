@@ -8,11 +8,11 @@
         {% stylesheets '@SMChatBundle/Resources/assets/sass/layout.scss' filter="compass"  output='css/*.css'%}
         <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
+        <script src="{{ asset('bootstrap/js/jquery.js') }}"></script>
     </head>
     <body>
         {% include 'SMChatBundle:layout:header.html.twig' %}
         {% block body %}{% endblock %}
-        <script src="{{ asset('bootstrap/js/jquery.js') }}"></script>
         <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
     </body>
 </html>

@@ -22,6 +22,9 @@ class LoadModelData implements FixtureInterface
             $model->setAge(18);
             $model->setEmail("blah$i@gmail.com");
             $model->setUsername("Sweetie$i");
+            $model->setFirstName("Sweet");
+            $model->setLastName("Tits");
+            $model->setCountry("USA");
             $model->setPassword("asdfasdf");
 
             $manager->persist($model);

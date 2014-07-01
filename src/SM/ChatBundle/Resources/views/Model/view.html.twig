@@ -4,6 +4,12 @@
     <iframe width="560" height="315" src="//www.youtube.com/embed/A-y1N29vH2Y" frameborder="0" allowfullscreen></iframe>
     <h1>{{ model.username }}</h1>
     <p>{{ model.age }}</p>
+    <div id="tipJarOptions">
+        <h2>Tip!</h2>
+    {% for option in tip_jar_options %}
+        <button data-amount="{{ option }}">{{ option }}</button>
+    {% endfor %}
+    </div>
     <script src="//static.opentok.com/webrtc/v2.2/js/opentok.min.js"></script>
     <script type="text/javascript">
         var apiKey    = "44783462";
@@ -22,5 +28,11 @@
             }
         });
 
+    </script>
+    {% javascripts '@SMWalletBundle/Resources/public/js/*' output='js/compiled/main.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script>
+        TipJar.init(document.getElementById('tipJarOptions'));
     </script>
 {% endblock %}
