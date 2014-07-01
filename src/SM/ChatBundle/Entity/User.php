@@ -44,6 +44,27 @@ abstract class User extends BaseUser
     protected $country;
 
     /**
+     * @ORM\Column(type="integer", nullable=false);
+     */
+    protected $tokens = 0;
+
+    /**
+     * @param mixed $tokens
+     */
+    public function setTokens($tokens)
+    {
+        $this->tokens = $tokens;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTokens()
+    {
+        return $this->tokens;
+    }
+
+    /**
      * Get id
      *
      * @return integer 

@@ -1,0 +1,7 @@
+parameters:
+#    sm_wallet.example.class: SM\WalletBundle\Example
+
+services:
+#    sm_wallet.example:
+#        class: %sm_wallet.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
