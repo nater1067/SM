@@ -20,19 +20,20 @@ class LoadViewerData implements FixtureInterface
      */
     function load(ObjectManager $manager)
     {
-        $model = new Viewer();
-        $model->setAge(18);
-        $model->setEmail("rich@gmail.com");
-        $model->setUsername("richguy");
-        $model->setFirstName("Rich");
-        $model->setFirstName("Sweet");
-        $model->setLastName("Tits");
-        $model->setCountry("USA");
-        $model->setPlainPassword("password");
-        $model->setEnabled(true);
-        $model->setNickname("Richie Rich");
+        $user = new Viewer();
+        $user->setAge(18);
+        $user->setEmail("rich@gmail.com");
+        $user->setUsername("richguy");
+        $user->setFirstName("Rich");
+        $user->setFirstName("Sweet");
+        $user->setLastName("Tits");
+        $user->setCountry("USA");
+        $user->setTokens(10000);
+        $user->setPlainPassword("password");
+        $user->setEnabled(true);
+        $user->setNickname("Richie Rich");
 
-        $manager->persist($model);
+        $manager->persist($user);
         $manager->flush();
     }
 }

@@ -14,3 +14,8 @@ services:
         arguments:
             - "@doctrine.orm.entity_manager"
             - "%sm_wallet.tip_jar_config%"
+
+    sm_wallet.token_service:
+        class: SM\WalletBundle\Token\TokenService
+        arguments:
+            - "@doctrine.orm.entity_manager"

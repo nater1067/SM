@@ -7,7 +7,7 @@
     <div id="tipJarOptions">
         <h2>Tip!</h2>
     {% for option in tip_jar_options %}
-        <button data-amount="{{ option }}">{{ option }}</button>
+        <button data-amount="{{ option }}" data-modelid="{{ model.id }}">{{ option }}</button>
     {% endfor %}
     </div>
     <script src="//static.opentok.com/webrtc/v2.2/js/opentok.min.js"></script>

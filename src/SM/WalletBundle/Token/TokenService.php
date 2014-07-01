@@ -30,6 +30,8 @@ class TokenService
     public function debitUserTokens(User $user, $tokens)
     {
         $user->setTokens($user->getTokens() - $tokens);
+        $this->em->persist($user);
+        $this->em->flush();
     }
 
     /**
@@ -38,7 +40,9 @@ class TokenService
      */
     public function grantUserTokens(User $user, $tokens)
     {
-        $user->setTokens($model->getTokens() + $tokens);
+        $user->setTokens($user->getTokens() + $tokens);
+        $this->em->persist($user);
+        $this->em->flush();
     }
 
     /**

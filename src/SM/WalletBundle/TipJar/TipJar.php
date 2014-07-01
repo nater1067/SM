@@ -14,7 +14,7 @@ class TipJar
     /** @var array  */
     protected $config;
 
-    /**
+    /**s
      * @param array $config
      */
     public function setConfig($config)

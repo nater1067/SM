@@ -1,3 +1,7 @@
 sm_wallet_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: SMWalletBundle:Default:index }
+
+sm_wallet_tip_model:
+    pattern:  /model/{modelId}/tip/{amount}
+    defaults: { _controller: SMWalletBundle:Tip:tipModel }
