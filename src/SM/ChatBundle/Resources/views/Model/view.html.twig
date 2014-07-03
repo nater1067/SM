@@ -1,5 +1,4 @@
 {% extends 'SMChatBundle:layout:layout.html.twig' %}
-
 {% block body %}
     <iframe width="560" height="315" src="//www.youtube.com/embed/A-y1N29vH2Y" frameborder="0" allowfullscreen></iframe>
     <h1>{{ model.username }}</h1>
@@ -27,7 +26,6 @@
                 // failed to connect
             }
         });
-
     </script>
     {% javascripts '@SMWalletBundle/Resources/public/js/*' output='js/compiled/main.js' %}
     <script src="{{ asset_url }}"></script>

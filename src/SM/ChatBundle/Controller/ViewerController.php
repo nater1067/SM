@@ -1,7 +1,9 @@
 <?php
 namespace SM\ChatBundle\Controller;
 
+use \SM\ChatBundle\Entity\Viewer;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use SM\ChatBundle\PaymentMethod\StripePaymentMethod;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContextInterface;
@@ -71,5 +73,17 @@ class ViewerController extends Controller
         $stripe->setViewer($this->getUser());
         $stripe->registerUser($this->getRequest()->request->get('stripeToken'));
         return $this->render('SMChatBundle:Viewer:registrationComplete.html.twig');
+    }
+
+    public function balanceAction()
+    {
+        $response = new Response();
+        $response->headers->set('Content-Type', 'application/json');
+        /** @var Viewer $user */
+        $user = $this->getUser();
+        $response->setContent($this->renderView('SMChatBundle:Viewer:balance.json.twig', [
+            'tokens' => $user->getTokens()
+        ]));
+        return $response;
     }
 } 

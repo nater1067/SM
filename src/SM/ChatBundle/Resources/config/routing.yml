@@ -38,6 +38,10 @@ sm_chat.viewer_register:
     pattern:  /viewer/register
     defaults: { _controller: SMChatBundle:Viewer:register }
 
+sm_chat.viewer_register:
+    pattern:  /viewer/balance
+    defaults: { _controller: SMChatBundle:Viewer:balance }
+
 login:
     path: /login
     defaults: { _controller: SMChatBundle:Viewer:login }

@@ -35,7 +35,11 @@ class TipController extends Controller
 
             $tokenService->userTipModel($this->getUser(), $model, $amount);
 
-            $rendered = $this->renderView('SMWalletBundle:Tip:tipModel.ajax.twig');
+
+
+            $rendered = $this->renderView('SMWalletBundle:Tip:tipModel.ajax.twig',[
+                    'tokens' => $user->getTokens()
+                ]);
             $response = new Response($rendered);
             $response->headers->set('Content-Type', 'application/json');
 
