@@ -3,17 +3,4 @@
 {% block body %}
     <h1>{{ chat.name }}</h1>
     <p>{{ chat.description }}</p>
-    <script src="//static.opentok.com/webrtc/v2.2/js/opentok.min.js"></script>
-    <script type="text/javascript">
-        var apiKey    = "44783462";
-        var sessionId = "1_MX40NDc4MzQ2Mn5-V2VkIE1heSAyOCAxNzozODo1MyBQRFQgMjAxNH4wLjUwOTM4NDR-fg";
-        var token     = "T1==cGFydG5lcl9pZD00NDc4MzQ2MiZzaWc9NmEyNDVjMDM3NmFhZTA5ZWJkMzgyN2IzYWNhNTUwNzdjYzhhODgxMzpzZXNzaW9uX2lkPTFfTVg0ME5EYzRNelEyTW41LVYyVmtJRTFoZVNBeU9DQXhOem96T0RvMU15QlFSRlFnTWpBeE5INHdMalV3T1RNNE5EUi1mZyZjcmVhdGVfdGltZT0xNDAxMzIzOTM1JnJvbGU9cHVibGlzaGVyJm5vbmNlPTE0MDEzMjM5MzUuMjQ1ODE2MzY1NTYyNzY=";
-
-        var session = OT.initSession(apiKey, sessionId);
-
-        session.on("streamCreated", function(event) {
-            session.subscribe(event.stream);
-        });
-
-    </script>
 {% endblock %}

@@ -40,10 +40,16 @@
         "pugx/multi-user-bundle": "3.0.*@dev",
         "umpirsky/country-list": "dev-master",
         "stripe/stripe-php": "dev-master",
-        "opentok/opentok": "2.2.*"
+        "opentok/opentok": "2.2.*",
+        "behat/behat": "*",
+        "behat/mink": "*",
+        "behat/mink-extension": "*",
+        "behat/mink-goutte-driver": "*",
+        "behat/mink-selenium2-driver": "*"
     },
     "scripts": {
         "post-install-cmd": [
+            "bower install",
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
@@ -52,6 +58,7 @@
             "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install"
         ],
         "post-update-cmd": [
+            "bower install",
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",

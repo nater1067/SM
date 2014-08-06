@@ -15,17 +15,22 @@
                     <a href="{{ path('model_registration') }}">Got talent? Sign up as a model here.</a>
                 </li>
             </ul>
+            {% if is_granted('ROLE_MODEL') %}
+                Model
+            {% endif %}
+            {% if is_granted('ROLE_VIEWER') %}
+                Viewer
+            {% endif %}
             {% if app.user %}
                 <a href="{{ path('model_profile') }}">{{ app.user.firstName }}</a>
             {% else %}
-                Not Logged In
+                {% render controller("SMChatBundle:Viewer:login") %}
             {% endif %}
             <ul class="nav navbar-nav navbar-right">
                 {% if app.user %}
                     <li><a href="{{ path('logout') }}">Logout</a></li>
                 {% else %}
-                    <li><a href="{{ path('sm_chat.viewer_login') }}">Login</a></li>
-                    <li><a href="{{ path('sm_chat.viewer_register') }}">Sign Up</a></li>
+                    <li><a href="#">Sign Up</a></li>
                 {% endif %}
             </ul>
         </nav>

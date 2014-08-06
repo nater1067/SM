@@ -2,6 +2,7 @@
 namespace SM\ChatBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\Doctrine;
+use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use SM\ChatBundle\Entity\Viewer;
@@ -10,7 +11,7 @@ use SM\ChatBundle\Entity\Viewer;
  * Class LoadViewerData
  * @package SM\ChatBundle\DataFixtures\ORM
  */
-class LoadViewerData implements FixtureInterface
+class LoadViewerData extends AbstractFixture implements FixtureInterface
 {
 
     /**

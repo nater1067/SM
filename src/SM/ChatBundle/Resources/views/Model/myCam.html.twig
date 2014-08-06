@@ -1,27 +1,16 @@
 {% extends 'SMChatBundle:layout:layout.html.twig' %}
 
 {% block body %}
-    <script src="//static.opentok.com/webrtc/v2.2/js/opentok.min.js"></script>
-    <script type="text/javascript">
-        var apiKey    = "{{ apiKey }}";
-        var sessionId = "{{ sessionId }}";
-        var token     = "{{ token }}";
-
-        var session = OT.initSession(apiKey, sessionId);
-
-//        session.on("streamCreated", function(event) {
-//            session.subscribe(event.stream);
-//        });
-
-        session.connect(token, function(error) {
-            var publisher = OT.initPublisher();
-            session.publish(publisher);
-        });
-    </script>
     <ul>
     <h2>Active Users</h2>
     {% for chat_session in active_chat_sessions %}
         <li>{{ chat_session.viewerId.username }}</li>
     {% endfor %}
     </ul>
+    <button>Start Show</button>
+    <button>Take Break</button>
+    <button>Mute</button>
+
+    <h3>Room Topic</h3>
+    <textarea></textarea>
 {% endblock %}

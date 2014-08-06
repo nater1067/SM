@@ -30,14 +30,6 @@ sm_chat.create_stripe_customer:
     pattern: /viewer/create_stripe_customer
     defaults: { _controller: SMChatBundle:Viewer:createStripeCustomer }
 
-sm_chat.viewer_login:
-    path:     /viewer/login
-    defaults: { _controller: SMChatBundle:Viewer:login }
-
-sm_chat.viewer_register:
-    pattern:  /viewer/register
-    defaults: { _controller: SMChatBundle:Viewer:register }
-
 sm_chat.viewer_register:
     pattern:  /viewer/balance
     defaults: { _controller: SMChatBundle:Viewer:balance }

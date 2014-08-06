@@ -1,0 +1,21 @@
+{
+  "name": "Secretmates",
+  "version": "0.0.0",
+  "homepage": "https://github.com/nater1067/SM",
+  "authors": [
+    "Nate Turner"
+  ],
+  "license": "Copyright 2014 Secretmates",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.19"
+  }
+}

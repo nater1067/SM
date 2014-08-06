@@ -88,24 +88,32 @@ class ModelController extends Controller
     public function myCamAction()
     {
         /** @var Cam $cam */
-        $cam = $this->get('sm_chat.cam');
-        $session = $cam->createSession();
-        $token = $cam->generateToken($session->getSessionId());
+//        $cam = $this->get('sm_chat.cam');
+//        $session = $cam->createSession();
+//        $token = $cam->generateToken($session->getSessionId());
         /** @var Model $model */
-        $model = $this->getUser();
-        $model->setActiveStreamSessionId($session->getSessionId());
-        $model->setActiveStreamToken($token);
-        $this->getDoctrine()->getManager()->persist($model);
-        $this->getDoctrine()->getManager()->flush();
+//        $model = $this->getUser();
+//        $model->setActiveStreamSessionId($session->getSessionId());
+//        $model->setActiveStreamToken($token);
+//        $this->getDoctrine()->getManager()->persist($model);
+//        $this->getDoctrine()->getManager()->flush();
         $activeChatSessions = $this
             ->getDoctrine()
             ->getRepository('SMChatBundle:ChatSession')
             ->findByModelId($this->getUser()->getId());
+
+        $activeChatSessions = [
+            [
+                'viewerId' => [
+                    'username' => 'Nate'
+                ]
+            ]
+        ];
         return $this->render('SMChatBundle:Model:myCam.html.twig',
             [
-                'apiKey' => $this->container->getParameter('sm_chat.tokbox.api_key'),
-                'sessionId' => $session->getSessionId(),
-                'token' => $token,
+//                'apiKey' => $this->container->getParameter('sm_chat.tokbox.api_key'),
+//                'sessionId' => $session->getSessionId(),
+//                'token' => $token,
                 'active_chat_sessions' => $activeChatSessions
             ]
         );

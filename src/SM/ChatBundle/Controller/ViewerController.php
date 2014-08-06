@@ -75,6 +75,9 @@ class ViewerController extends Controller
         return $this->render('SMChatBundle:Viewer:registrationComplete.html.twig');
     }
 
+    /**
+     * @return Response
+     */
     public function balanceAction()
     {
         $response = new Response();
