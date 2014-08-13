@@ -1,0 +1,1 @@
+server "digitalocean", :app, :web, :primary => true
