@@ -1,0 +1,12 @@
+<project name="Secretmates" default="dist" basedir=".">
+    <description>
+        Secretmates build file
+    </description>
+    <property name="workspace" location="."/>
+    <target name="phpunit" description="Run unit tests with PHPUnit">
+        <exec executable="phpunit" failonerror="true">
+            <arg value="-c"/>
+            <arg path="${workspace}/app/phpunit.xml"/>
+        </exec>
+    </target>
+</project>
