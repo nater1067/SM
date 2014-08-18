@@ -1,19 +1,22 @@
 {% extends 'SMChatBundle:layout:layout.html.twig' %}
 
 {% block body %}
-    <div id= "thumbnail-container" class="container-fluid">
-        {% for row in models|batch(4) %}
-            <div class="row">
-                {% for model in row %}
-                    <div class="col-xs-6 col-md-3">
-                        <a href="{{ path('model_view', {'modelId': model.id}) }}" class="thumbnail">
-                            {% image '@SMChatBundle/Resources/public/images/nyan.png' %}
+
+            {% for row in models|batch(4) %}
+                <div class="row fullWidth collapse">
+                    {% for model in row %}
+                        <div class="large-3 small-6 columns">
+                            <a href="{{ path('model_view', {'modelId': model.id}) }}" class="thumbnail">
+                                {% image '@SMChatBundle/Resources/public/images/cassie.jpg' %}
                                 <img src="{{ asset_url }}" alt="Nyan" />
-                            {% endimage %}
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
-        {% endfor %}
-    </div>
+                                {% endimage %}
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+    {#<div id= "thumbnail-container" class="container-fluid">#}
+
+    {#</div>#}
 {% endblock %}

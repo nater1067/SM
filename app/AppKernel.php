@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new PUGX\MultiUserBundle\PUGXMultiUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new SM\WalletBundle\SMWalletBundle(),
+            new Bmatzner\FoundationBundle\BmatznerFoundationBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

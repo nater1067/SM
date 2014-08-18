@@ -1,0 +1,43 @@
+@import "../variables";
+
+.logotext {
+    height: $headerHeight;
+    padding-top: 38px;
+    background-color: $black;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    font-size: 29px;
+    font-weight: 100;
+    text-align: center;
+    .logohighlight {
+        font-weight: 500;
+    }
+}
+
+.header {
+  a.button {
+    background-color: transparent;
+    color: grey;
+    margin-top: 39px;
+    padding-right: 20px;
+    padding-left: 20px;
+    float: right;
+    border-right-color: grey;
+    border-right-style: solid;
+    border-right-width: 1px;
+    height: 20px;
+    margin-top: 40px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    opacity: 0.4;
+    font-family: Lato, sans-serif;
+    color: black;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  a.button.end {
+    border-right: none;
+  }
+}
